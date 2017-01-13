@@ -1,0 +1,14 @@
+{{include 'same/header'}}
+{{include 'same/nav'}}
+
+<div class="container">
+    <form action="/user/photo" enctype="multipart/form-data">
+        <div class="form-group">
+            <input type="file" name="photo" required accept=".jpg,.png">
+        </div>
+        <input type="submit" class="btn btn-success form-control" value="上传头像" name="photo">
+    </form>
+</div>
+
+{{include 'same/modal'}}
+{{include 'same/footer'}}

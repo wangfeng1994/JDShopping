@@ -23,7 +23,7 @@ $('form').submit(function (ev) {
             //hidden.bs.modal事件->当模态框对用户隐藏
             $('#myModal').modal('show').on('hidden.bs.modal', function () {
                 if (res.code == 'success') {
-                    location.href = 'signin.html';
+                    location.href = '/api/signin';
                 }
             });
         });

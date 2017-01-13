@@ -5,12 +5,16 @@ $('#goBack').click(function () {
     history.go(-1);
 });
 
+$('#register').click(function () {
+    location.href = '/api/register';
+});
+
 $('form').submit(function (ev) {
     ev.preventDefault();
     var data = new FormData(this);
     // console.log(data);
     $.ajax({
-        url: 'user/photo',
+        url: '/user/photo',
         data: data,
         contentType: false,//默认为application/x-www-form-urlencoded
         type: 'POST',

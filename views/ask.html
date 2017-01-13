@@ -1,0 +1,29 @@
+{{include 'same/header'}}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container dropdown">
+        <a href="#" class="navbar-brand">智游教育</a>
+        <div class="navbar-text pull-right text-right">
+            <span class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-user"></span>
+                王宝强
+            </span>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dLabel">
+                <li><a href="register.html" class="text-right">个人资料</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="" class="text-right">退出</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <form>
+        <div class="form-group">
+            <textarea name="content" id="form-control" cols="30" rows="10" class="form-control" placeholder="请详细描述你的问题"></textarea>
+        </div>
+        <button type="submit" class="btn btn-info form-control">提交</button>
+    </form>
+</div>
+<!--Modal-->
+{{include 'same/modal'}}
+{{include 'same/footer'}}

@@ -1,0 +1,65 @@
+{{include 'same/header'}}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container dropdown">
+        <a class="navbar-brand" href="#">智游教育</a>
+        <div class="navbar-text pull-right text-right">
+            <span id="ask" onclick="location.href='/api/ask';"><span class="glyphicon glyphicon-plus"></span>提问</span>
+            {{if user}}
+            <span id="user" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user"></span>
+            <span>{{user}}</span>
+            </span>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dLabel">
+                <li><a class="text-right" href="/api/user">个人资料</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a class="text-right" href="/user/signout">退出</a></li>
+            </ul>
+            {{else}}
+            <span onclick="location.href='/api/signin';">
+                <span class="glyphicon glyphicon-user"></span>
+                登录
+            </span>
+            {{/if}}
+        </div>
+    </div>
+</nav>
+<div class="container questions">
+    {{each datas as q}}
+    <div class="media" question="{{q.time | formTime}}" onclick="location.href='/api/answer/{{q.time | formTime}'">
+        <div class="media-left">
+            <a>
+                <img class="media-object" src="/uploads/{{q.petname}}.jpg" onerror="this.src='/images/user.png'" alt="">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{q.petname}}</h4>
+            {{q.content}}
+            <div class="media-footing">
+                {{q.time | ms}}
+            </div>
+        </div>
+    </div>
+    {{each q.answers as a}}
+    <div class="media media-child" style="width: 400px;">
+        <div class="media-body">
+            <h4 class="media-heading">{{a.petname}}</h4>
+            {{a.content}}
+            <div class="media-footing">
+                {{a.time | ms}}
+            </div>
+        </div>
+        <div class="media-right">
+            <a>
+                <img src="/uploads/{{a.petname}}.jpg" alt="" class="media-object" onerror="this.src='/images/user.png'">
+            </a>
+        </div>
+    </div>
+    {{/each}}
+    {{/each}}
+</div>
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/jquery.cookie.js"></script>
+<!--<script src="/scripts/index.js"></script>-->
+</body>
+</html>

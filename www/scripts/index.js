@@ -8,15 +8,15 @@ if (petname) {
     $('#user').find('span').last().text(petname);
 } else {
     $('#user').find('span').last().text('登录').end().end().removeAttr('data-toggle').click(function () {
-        location.href = 'signin.html';
+        location.href = '/api/signin';
     });
 }
 
 $('#ask').click(function () {
     if (petname) {
-        location.href = 'ask.html';
+        location.href = '/api/ask';
     } else {
-        location.href = 'signin.html';
+        location.href = '/api/signin';
     }
 });
 
@@ -31,9 +31,9 @@ $('.navbar .dropdown-menu li').last().click(function () {
 $('.questions').delegate('[question]', 'click', function () {
     $.cookie('question', $(this).attr('question'));
     if (petname) {
-        location.href = 'answer.html';
+        location.href = '/api/answer';
     } else {
-        location.href = 'signin.html';
+        location.href = '/api/signin';
     }
 });
 
@@ -81,42 +81,24 @@ $('.questions').delegate('[question]', 'click', function () {
 //     $('.questions').html(html);
 // });
 
-window.onload = function(){
-    $.getJSON('/questions',null,function(res){
+// window.onload = function(){
+//     $.getJSON('/questions',null,function(res){
+//
+//             var html = template('question-answer',res);
+//             console.log(html);
+//             $('.questions').html(html)
+//     });
+// };
 
-            var html = template('question-answer',res);
-            console.log(html);
-            $('.questions').html(html)
-    });
-};
+// $.getJSON('/questions', null, function (res) {
+//     var html = template('question-template', res);
+//     $('.questions').html(html);
+// });
 
+// template.helper('ms', function (t) {
+//
+// });
 
-template.helper('dateFormat',function (date){
-    //根据日期的字符串生成日期对象
-    var time = new Date(date);
-    console.log(time);
-
-    var year = time.getFullYear();
-    var month = time.getMonth() + 1;
-    var day = time.getDate();
-
-    var hour = time.getHours();
-    var minute = time.getMinutes();
-    var second = time.getSeconds();
-
-    hour = hour < 10? '0'+hour : hour;
-    minute = minute<10 ? '0'+minute :minute;
-    second = second<10 ? '0'+second :second;
-
-    var str = year + '-' + month + '-' + day + '  ' + hour + ':' + minute + ':' + second;
-    console.log(str);
-    return str
-});
-
-template.helper('dateTime',function (date) {
-    var time = new Date(date);
-    return time.getTime();
-});
 
 
 
