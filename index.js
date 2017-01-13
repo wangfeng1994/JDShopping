@@ -370,7 +370,7 @@ app.post('/answer', sign, function (req, res) {
     // }
 
 
-    var fileName = `questions/${req.cookies.question}.txt`;
+    var fileName = `questions/${req.body.question}.txt`;
     console.log(fileName);
     req.body.petname = petname;
     req.body.ip = req.ip;
